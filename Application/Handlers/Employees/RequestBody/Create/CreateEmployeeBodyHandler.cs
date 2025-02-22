@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net;
 
-namespace Application.Handlers.Employees.RequestBody
+namespace Application.Handlers.Employees.RequestBody.Create
 {
     public class CreateEmployeeBodyHandler : IRequestHandler<CreateEmployeeBodyRequest, ResponseBase<CreateEmployeeResponseItem>>
     {

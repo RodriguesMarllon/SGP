@@ -6,5 +6,6 @@ namespace Domain.InterfacesRepositories.Employees
     {
         Task<bool> Add(Employee obj);
         Task<List<Employee>> GetAll();
+        Task<bool> Update(Employee obj);
     }
 }

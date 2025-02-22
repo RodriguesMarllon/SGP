@@ -3,7 +3,7 @@ using Application.Models.Response.Employees;
 using MediatR;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Application.Handlers.Employees.RequestBody
+namespace Application.Handlers.Employees.RequestBody.Create
 {
     [ExcludeFromCodeCoverage]
     public class CreateEmployeeBodyRequest : IRequest<ResponseBase<CreateEmployeeResponseItem>>

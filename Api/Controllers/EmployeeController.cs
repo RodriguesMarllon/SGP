@@ -1,6 +1,7 @@
 ﻿using Api.Models.Employee.RequestBody;
 using Application.Handlers.Employees.Queries.GetAll;
-using Application.Handlers.Employees.RequestBody;
+using Application.Handlers.Employees.RequestBody.Create;
+using Application.Handlers.Employees.RequestBody.Update;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -42,6 +43,13 @@ namespace Api.Controllers
         public async Task<IActionResult> GetAll()
         {
             GetAllEmployeeQueryRequest queryMediator = new();
+            return Ok(await _mediator.Send(queryMediator));
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody] UpdateEmployeeBodyModel body)
+        {
+            var queryMediator = _mapper.Map<UpdateEmployeeBodyRequest>(body);
             return Ok(await _mediator.Send(queryMediator));
         }
     }

@@ -26,5 +26,12 @@ namespace Infrastructure.Repositories.Employees
         {
             return await _context.Employees.ToListAsync();
         }
+
+        public async Task<bool> Update(Employee obj)
+        {
+            _context.Employees.Update(obj);
+            await _context.SaveChangesAsync();
+            return obj.Id > 0;
+        }
     }
 }
