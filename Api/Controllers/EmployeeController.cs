@@ -1,4 +1,5 @@
 ﻿using Api.Models.Employee.RequestBody;
+using Application.Handlers.Employees.Queries.GetAll;
 using Application.Handlers.Employees.RequestBody;
 using AutoMapper;
 using MediatR;
@@ -35,6 +36,13 @@ namespace Api.Controllers
                 _logger.LogError($"Mapping error: {ex.Message}");
                 return BadRequest("Mapping error");
             }
+        }
+
+        [HttpGet("get-all")]
+        public async Task<IActionResult> GetAll()
+        {
+            GetAllEmployeeQueryRequest queryMediator = new();
+            return Ok(await _mediator.Send(queryMediator));
         }
     }
 }
