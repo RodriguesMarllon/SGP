@@ -30,7 +30,7 @@ namespace Application.Handlers.Employees.RequestBody
 
             try
             {
-                request.DateInsertUpdate = DateTime.Now;
+                request.InsertUpdateDatetime = DateTime.Now;
                 await _employeeRepository.Add(_mapper.Map<Employee>(request));
             }
             catch (Exception ex)
